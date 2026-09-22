@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Nathasya Michell Agustina</title>
+    <link rel="icon" href="Logo-unud-baru.png" type="image/x-icon">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f8f9fa; 
+            color: #2b2b2b; 
+            margin: 0;
+            padding: 20px;
+        }
+
+        .main-layout {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-areas: 
+                "header  header"
+                "sidebar content"
+                "footer  footer";
+            grid-template-columns: 280px 1fr;
+            gap: 20px;
+        }
+
+        header.site-header { grid-area: header; }
+        aside.sidebar      { grid-area: sidebar; }
+        main.content       { grid-area: content; }
+        footer.site-footer { grid-area: footer; }
+
+        .box {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .site-header {
+            background: #ffffff;
+            border-top: 6px solid #800020;
+            border-bottom: 2px solid #f0d6dc;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .foto-profil {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #800020; 
+            box-shadow: 0 2px 10px rgba(128,0,32,0.2);
+        }
+
+        h1 {
+            color: #1a1a1a;
+            margin: 10px 0 5px;
+            font-size: 24px;
+        }
+
+        .tagline {
+            color: #800020; 
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .sidebar {
+            border-top: 4px solid #800020;
+            height: fit-content;
+        }
+
+        .sidebar-title {
+            color: #800020;
+            font-size: 16px;
+            font-weight: bold;
+            border-bottom: 2px solid #800020;
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+        }
+
+        .sidebar-info {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            border-top: 4px solid #800020;
+        }
+
+        .section-title {
+            color: #800020; 
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0 15px;
+            border-bottom: 2px solid #800020;
+            padding-bottom: 5px;
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 14px;
+            color: #444;
+        }
+
+
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .nav-menu a {
+            background: #fff5f7;
+            color: #800020;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 13px;
+            border: 1px solid #f0d6dc;
+            transition: 0.2s;
+        }
+
+        .nav-menu a:hover {
+            background: #800020;
+            color: #ffffff;
+        }
+
+        .preview-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .preview-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            border: 1px solid #f0d6dc;
+            padding: 6px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #800020;
+            font-size: 12px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .preview-card:hover {
+            background: #800020;
+            color: #ffffff;
+        }
+
+        .preview-card img {
+            width: 16px;
+            height: 16px;
+            object-fit: cover;
+        }
+
+        .card {
+            background: #fff5f7; 
+            padding: 14px 16px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 4px solid #800020; 
+        }
+
+        .card-header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-title {
+            font-weight: bold;
+            color: #1a1a1a;
+            font-size: 15px;
+        }
+
+        .card-date {
+            color: #800020;
+            font-size: 12.5px;
+            font-weight: bold;
+        }
+
+        .card-desc {
+            font-size: 13px;
+            color: #444444;
+            margin-top: 6px;
+            line-height: 1.5;
+        }
+
+        .skill-group {
+            font-size: 13px;
+            color: #800020;
+            margin: 15px 0 8px;
+        }
+
+        .skills-flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #800020;
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 13.5px;
+            margin-bottom: 25px;
+        }
+
+        th, td {
+            border: 1px solid #f0d6dc;
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #800020;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fff5f7;
+        }
+
+        .site-footer {
+            background: #800020;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            .main-layout {
+                grid-template-areas: 
+                    "header"
+                    "sidebar"
+                    "content"
+                    "footer";
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-layout">
+        
+        <header class="site-header">
+            <img src="Foto Diri.jpg" alt="Foto Profil" class="foto-profil">
+            <h1>Nathasya Michell Agustina</h1>
+            <div class="tagline">Musician & Content Creator | IT Student</div>
+        </header>
+
+        <aside class="sidebar box">
+            <div class="sidebar-title">Informasi Kontak</div>
+            <div class="sidebar-info">
+                <strong>NIM:</strong> 2505551020<br>
+                <strong>Prodi:</strong> Teknologi Informasi (Kelas E '25)<br>
+                <strong>Kampus:</strong> Universitas Udayana<br>
+                <strong>Lokasi:</strong> Denpasar Barat<br>
+                <strong>Telepon:</strong> 081237894653<br>
+                <strong>Email:</strong> agustina.2505551020@student.unud.ac.id
+            </div>
+
+            <div class="sidebar-title">Navigasi Halaman</div>
+            <nav class="nav-menu">
+                <a href="#about">About Me</a>
+                <a href="#experience">Work Experience</a>
+                <a href="#organization">Organization</a>
+                <a href="#education">Education</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#skills">Skills & Tools</a>
+            </nav>
+        </aside>
+
+        <main class="content box">
+            
+            <section id="about">
+                <div class="section-title">About Me</div>
+                <p>
+                    Halo! Saya <strong>Nathasya Michell Agustina</strong>, seorang mahasiswi Teknologi Informasi di Universitas Udayana. Saya memiliki minat besar dalam menggabungkan logika teknologi informasi dengan kreativitas di bidang seni dan musik. Selain fokus pada akademik, saya aktif berkarya sebagai musisi reguler (pianist/keyboardist), <em>music arranger</em>, serta pembuat konten musik.
+                </p>
+                <div class="preview-container">
+                    <a href="https://youtu.be/4TlUwg0WlTc?si=vHQ4nrYB3j30oo6V" target="_blank" class="preview-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/YouTube_logo_%282017%29.png" alt="YouTube">
+                        <span>Live Performance Video</span>
+                    </a>
+                    <a href="https://www.instagram.com/yorushijin?stkn=MWFuaWV3Nmh3MzEyZw==" target="_blank" class="preview-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="IG Band">
+                        <span>Instagram Band (@yorushijin)</span>
+                    </a>
+                </div>
+            </section>
+
+            <section id="experience" style="margin-top: 25px;">
+                <div class="section-title">Creative & Work Experience</div>
+                <div class="card">
+                    <div class="card-header-flex">
+                        <span class="card-title">Musisi Reguler & Content Creator Musik</span>
+                        <span class="card-date">Active</span>
+                    </div>
+                    <div class="card-desc">
+                        • Pengisi acara musik reguler di kafe, acara formal, dan non-formal.<br>
+                        • Memproduksi konten aransemen dan cover musik di media sosial.
+                    </div>
+                    <div class="preview-container">
+                        <a href="https://www.instagram.com/ichell_0?stkn=MTFndXA0bHA1M3c0YQ==" target="_blank" class="preview-card">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="IG">
+                            <span>Instagram @ichell_0</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header-flex">
+                        <span class="card-title">Pembuatan Web CV Interaktif</span>
+                        <span class="card-date">2026</span>
+                    </div>
+                    <div class="card-desc">
+                        • Merancang web CV personal satu halaman menggunakan HTML5 dan CSS3 untuk tugas Pemrograman Internet.
+                    </div>
+                </div>
+            </section>
+
+            <section id="organization">
+                <div class="section-title">Organizational Experience</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Jabatan / Peran</th>
+                            <th>Kegiatan / Organisasi</th>
+                            <th>Tahun</th>
+                            <th>Deskripsi Tugas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Sub-Koordinator Sie Lomba</strong></td>
+                            <td>ITESEGA</td>
+                            <td>2026</td>
+                            <td>Membantu pengoordinasian seluruh alur perlombaan, penyusunan regulasi, hingga eksekusi teknis acara.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Koordinator Sie Cabor PUBGM</strong></td>
+                            <td>SPORTI</td>
+                            <td>2026</td>
+                            <td>Memimpin operasional teknis pertandingan PUBG Mobile, merancang <em>bracket</em>, dan mengawasi turnamen.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ketua Divisi Musik</strong></td>
+                            <td>KSM-4 (Kelompok Seni Musik)</td>
+                            <td>2023</td>
+                            <td>Mengordinasikan latihan rutin, merancang aransemen lagu, serta mengelola pergelaran musik sekolah.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="education">
+                <div class="section-title">Education</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Instansi / Sekolah</th>
+                            <th>Program / Jurusan</th>
+                            <th>Tahun</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Universitas Udayana</strong></td>
+                            <td>S1 Teknologi Informasi (Kelas E)</td>
+                            <td>2025 - Sekarang</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SMA Negeri 4 Denpasar</strong></td>
+                            <td>MIPA</td>
+                            <td>2022 - 2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="achievements">
+                <div class="section-title">Achievements</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Prestasi</th>
+                            <th>Penyelenggara</th>
+                            <th>Tahun</th>
+                            <th>Dokumentasi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Juara 1 Lomba Pidato</td>
+                            <td>Bulan Bung Karno</td>
+                            <td>2025</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Juara 2 Duta Literasi Sekolah</td>
+                            <td>Festival Literasi Denpasar</td>
+                            <td>2022</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Juara 2 Lomba Paduan Suara</td>
+                            <td>Pekan Seni Pelajar Kota Denpasar</td>
+                            <td>2024</td>
+                            <td>
+                                <a href="https://youtu.be/gP_vnnOiR4I?si=h0WFdnTVh62VfKc6" target="_blank" class="preview-card">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/YouTube_logo_%282017%29.png" alt="YT">
+                                    <span>Video</span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="skills">
+                <div class="section-title">Skills & Tools</div>
+                
+                <div class="skill-group" style="margin-top:0;"><strong>Hard Skills:</strong></div>
+                <div class="skills-flex-container">
+                    <span class="skill-tag">Microsoft Office</span>
+                    <span class="skill-tag">Canva</span>
+                    <span class="skill-tag">Figma</span>
+                    <span class="skill-tag">FL Studio</span>
+                    <span class="skill-tag">Keyboardist</span>
+                    <span class="skill-tag">Music Arranger</span>
+                    <span class="skill-tag">Pianist</span>
+                </div>
+                
+                <div class="skill-group"><strong>Soft Skills:</strong></div>
+                <div class="skills-flex-container">
+                    <span class="skill-tag">Public Speaking</span>
+                    <span class="skill-tag">Kerjasama Tim</span>
+                    <span class="skill-tag">Manajemen Waktu</span>
+                    <span class="skill-tag">Problem Solving</span>
+                    <span class="skill-tag">Kecerdasan Emosional</span>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="site-footer">
+            &copy; 2026 Nathasya Michell Agustina - All Rights Reserved.
+        </footer>
+
+    </div>
+
+</body>
+</html>
